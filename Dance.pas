@@ -17,6 +17,7 @@ Const
   coefArm = 1 * k;
   RoundArm = 0.3*k;
   coefFoot = 0.2*k;
+  const n = 7;
 
 type
   TMode = (MovArms = 0, MovLegs = 1, MovAll = 2);  // mode(0)
@@ -27,20 +28,22 @@ type
   TForm1 = class(TForm)
       Button1: TButton;
       Timer1: TTimer;
-      Label1: TLabel;
       procedure FormCreate(Sender: TObject);
       procedure Button1Click(Sender: TObject);
       procedure Timer1Timer(Sender: TObject);
-      procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     private
       { Private declarations }
     public
       { Public declarations }
     end;
-
+    TQueueArr = Array[1..N] of integer;
+const
+  Queue:TQueueArr = (1,2,0,1,2,1,0);
 var
   DanceMode: TMode;
   Form1: TForm1;
+  state:Integer;
+  kek: Boolean;
 //  KeyPoints: array [0..10] of TPoint;
 implementation
 
@@ -85,8 +88,9 @@ begin
       X:=Round(coefArm*cos(Pi/4));
       Y:=Round(coefArm*sin(Pi/4));
       Canvas.LineTo(Coord.x-x, Coord.y+y);
-      Canvas.LineTo(Coord.x+x, Coord.y-y);
-      Canvas.MoveTo(Coord.x-x, Coord.y-y);
+      Canvas.MoveTo(Coord.x, Coord.y);
+      Canvas.LineTo(Coord.x+x, Coord.y+y);
+
     end;
   MovLegs:
     begin
@@ -96,12 +100,13 @@ begin
         begin
           Canvas.LineTo(Coord.x+round(coefArm/3), Coord.y);
           Canvas.LineTo(Coord.x+round(2/3*x), Coord.y-y);
-          //Canvas.Arc(Coord.x-round(coefBody/2),Coord.y,Coord.x+(coefBody/2),Coord.y+Round(coefBody/2),Coord.x,Coord.y,Coord.x,Coord.y+round(coefBody));
+        Canvas.Arc(Coord.x-round(coefBody/2),Coord.y,Coord.x+round(coefBody/2),Coord.y+Round(coefBody/2),Coord.x,Coord.y,Coord.x,Coord.y+round(coefBody));
         end;
         if LR = Right then
         begin
           Canvas.LineTo(Coord.x-round(coefArm/3), Coord.y);
           Canvas.LineTo(Coord.x-round(2/3*x), Coord.y-y);
+          Canvas.Arc(Coord.x-round(coefBody/2),Coord.y,Coord.x+round(coefBody/2),Coord.y+Round(coefBody/2),Coord.x,Coord.y+round(coefBody),Coord.x,Coord.y);
 
         end;
       end;
@@ -143,8 +148,8 @@ begin
 
           Canvas.LineTo(Coord.x+x, Coord.y+y);
 
-          X1 := Round(0.5*coefLeg*cos(Pi/1.5));
-          Y1 := Round(0.5*coefLeg*sin(Pi/1.5));
+          X1 := Round(0.5*coefLeg*cos(Pi/2.2));
+          Y1 := Round(0.5*coefLeg*sin(Pi/2.2));
 
           Canvas.LineTo(Coord.x+x+x1, Coord.y+y+y1);
           Canvas.LineTo(Round(Coord.x+x+x1+coefFoot), Coord.y+y+y1);
@@ -164,8 +169,8 @@ begin
 
           Canvas.LineTo(Coord.x-x, Coord.y+y);
 
-          X1 := Round(0.5*coefLeg*cos(Pi/1.5));
-          Y1 := Round(0.5*coefLeg*sin(Pi/1.5));
+          X1 := Round(0.5*coefLeg*cos(Pi/2.2));
+          Y1 := Round(0.5*coefLeg*sin(Pi/2.2));
 
           Canvas.LineTo(Coord.x-x-x1, Coord.y+y+y1);
           Canvas.LineTo(Round(Coord.x-x-x1-coefFoot), Coord.y+y+y1);
@@ -173,7 +178,15 @@ begin
     end;
   MovAll:
     begin
+      X := Round(coefLeg*cos(Pi/3));
+      Y := Round(coefLeg*sin(Pi/3));
 
+      Canvas.LineTo(Coord.x+x, Coord.y-y);
+      Canvas.LineTo(Round(Coord.x+x+coefFoot), Coord.y-y);
+
+      Canvas.MoveTo(Coord.x, Coord.y);
+      Canvas.LineTo(Coord.x-x, Coord.y-y);
+      Canvas.LineTo(Round(Coord.x-x-coefFoot), Coord.y-y);
     end;
   end;
 
@@ -183,6 +196,7 @@ end;
 procedure WritePeople(Canvas:TCanvas; Coord: TPoint; mode:TMode);
 var
   InitArm, InitLegs, initHead, initBody: TPoint;
+  LR1, LR2: TLR;
 begin
   //ShowMessage( IntToStr(Coord.x) + ' ' + IntToSTR(Coord.y));
   InitArm := Coord;
@@ -202,45 +216,64 @@ begin
       initBody := coord;
       inithead.y := Coord.y + ( k + Round(coefHead*2) );
       InitLegs.y := initBody.y;
-      InitLegs.y := Coord.y + round(coefBody - coefNeck);
+      InitArm.y := Coord.y + round(coefBody - coefNeck);
     end;
   end;
   // Находим точку начала тела
   PaintHead(Canvas, InitHead);
   PaintBody(Canvas, InitBody);
-  PaintArm(Canvas, InitArm, mode, Left);
-  PaintLegs(Canvas, InitLegs, mode, Left);
+  if kek then
+  begin
+    LR1 := left;
+    LR2 := right;
+    kek := false
+  end
+  else
+  begin
+    LR1 := right;
+    LR2 := left;
+    kek := true;
+  end;
+
+  PaintArm(Canvas, InitArm, mode, LR1);
+  PaintLegs(Canvas, InitLegs, mode, LR2);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   Form1.Paint;
+   state:=1;
 end;
 
-procedure TForm1.FormMouseMove(Sender: TObject; Shift: TShiftState; X,
-  Y: Integer);
+procedure clearscreen(Form: TForm1; Canvas: TCanvas);
 begin
-  Label1.Caption := IntToStr(x) + ' ' + IntToStr(Y);
+  Canvas.Rectangle(0,0, Form.Width, form.Height);
 end;
-
-
 
 procedure TForm1.Timer1Timer(Sender: TObject);
 var
   P: TPoint;
-begin
 
+begin
+  clearscreen(form1, canvas);
   P.x := MainX;
   P.y := MainY;
   Canvas.Pen.Width:= 2;
   //WritePeople(Canvas, P, MovArms);
-  canvas.Pen.Color:= clred;
-  WritePeople(Canvas, P, MovArms);
+  //canvas.Pen.Color:= clred;
+  WritePeople(Canvas, P, TMode( Queue[state] ) );
   canvas.Pen.Color := clblack;
-  p.x := p.x + 120;
-  WritePeople(Canvas, P, TMode(Random(3)));
+  p.x := p.x + 190;
+  //WritePeople(Canvas, P, TMode(Random(3)));
+  WritePeople(Canvas, P, TMode( Queue[state] ));
+  p.x := p.x + 220;
+  //WritePeople(Canvas, P, TMode(Random(3)));
+  WritePeople(Canvas, P, TMode( Queue[state] ));
+
+  if state >= 7 then
+    state := 1
+  else
+    inc(state);
 end;
 
-
 end.
-

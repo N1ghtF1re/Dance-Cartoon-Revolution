@@ -12,16 +12,8 @@ object Form1: TForm1
   Font.Style = []
   OldCreateOrder = False
   OnCreate = FormCreate
-  OnMouseMove = FormMouseMove
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 536
-    Top = 32
-    Width = 31
-    Height = 13
-    Caption = 'Label1'
-  end
   object Button1: TButton
     Left = 432
     Top = 104
@@ -32,6 +24,7 @@ object Form1: TForm1
     OnClick = Button1Click
   end
   object Timer1: TTimer
+    Interval = 300
     OnTimer = Timer1Timer
     Left = 384
     Top = 192
