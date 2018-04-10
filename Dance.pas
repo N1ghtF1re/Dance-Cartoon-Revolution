@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Types, MMSystem;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Types, MMSystem,
+  Vcl.MPlayer;
 
 Const
   MainX = 200;
@@ -26,8 +27,8 @@ type
   x,y: integer;
   end;
   TForm1 = class(TForm)
-      Button1: TButton;
       Timer1: TTimer;
+    mp1: TMediaPlayer;
       procedure FormCreate(Sender: TObject);
       procedure Button1Click(Sender: TObject);
       procedure Timer1Timer(Sender: TObject);
@@ -244,7 +245,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   Form1.Paint;
    state:=1;
-  sndPlaySound('D:\Boney.mp3', SND_ASYNC + SND_LOOP); // Зацикленное воспроизведение
+  mp1.Play;
 end;
 
 procedure clearscreen(Form: TForm1; Canvas: TCanvas);
