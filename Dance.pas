@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Types;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Types, MMSystem;
 
 Const
   MainX = 200;
@@ -243,6 +243,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   Form1.Paint;
    state:=1;
+  sndPlaySound('D:\Boney.mp3', SND_ASYNC + SND_LOOP); // Зацикленное воспроизведение
 end;
 
 procedure clearscreen(Form: TForm1; Canvas: TCanvas);
