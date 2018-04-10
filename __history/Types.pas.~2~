@@ -1,0 +1,14 @@
+unit Types;
+
+interface
+
+type
+TPoint = record
+  x,y: integer;
+end;
+
+
+
+implementation
+
+end.
