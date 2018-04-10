@@ -44,6 +44,7 @@ var
   Form1: TForm1;
   state:Integer;
   kek: Boolean;
+  pic: TBitmap;
 //  KeyPoints: array [0..10] of TPoint;
 implementation
 
@@ -257,6 +258,8 @@ var
 
 begin
   clearscreen(form1, canvas);
+
+  canvas.Draw(0,0, pic);
   P.x := MainX;
   P.y := MainY;
   Canvas.Pen.Width:= 2;
