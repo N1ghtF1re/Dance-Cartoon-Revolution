@@ -1,4 +1,4 @@
-﻿unit Dance;
+unit Dance;
 
 interface
 
@@ -33,7 +33,7 @@ type
   end;
 
 var
-  DanceMode: TMode;
+  DanceMode: mode;
   Form1: TForm1;
 //  KeyPoints: array [0..10] of TPoint;
 implementation
@@ -47,19 +47,18 @@ begin
 end;
 
 
-procedure Paintbody(Canvas:TCanvas; Coord: TPoint);
+procedure Paintbody(Coord: TPoint);
 begin
   Canvas.MoveTo(Coord.x, Coord.y);
-  Canvas.LineTo(Coord.x, Coord.y + coefBody);
+  Canvas.LineTo(Coord.x, Coord.y + coefBody;
 end;
 
-procedure paintHead(Canvas:TCanvas; Coord: TPoint);
+procedure paintHead(Coord: TPoint);
 begin
-
-  Canvas.Ellipse(Coord.x, Coord.y, Round(Coord.x + 2 * coefHead), Round(Coord.y + 2*coefHead));
+  Canvas.Ellipse(Coord.x, Coord.y, Coord.x + 2 * coefHead ,Coord.y + 2 * coefHead);
 end;
 
-procedure PaintArm(Canvas:TCanvas; Coord: TPoint; mode: TMode; LR: TLR);
+procedure PaintArm(Coord: TPoint; mode: TMode; LR: TLR);
 var coef:integer;
 var x,y:integer;
 begin
@@ -67,39 +66,37 @@ begin
   case mode of
   MovArms:
     begin
-      X:=Round( k*cos(Pi/4) );
-      Y:=Round( k*sin(Pi/4) );
+      X:=k*cos(Pi/4);
+      Y:=k*sin(Pi/4);
       Canvas.LineTo(Coord.x+x, Coord.y-y);
       Canvas.MoveTo(Coord.x-x, Coord.y-y);
     end;
   MovAll:
     begin
-      X:=Round(k*cos(Pi/4));
-      Y:=Round(k*sin(Pi/4));
+      X:=k*cos(Pi/4);
+      Y:=k*sin(Pi/4);
       Canvas.LineTo(Coord.x-x, Coord.y+y);
       Canvas.LineTo(Coord.x+x, Coord.y-y);
       Canvas.MoveTo(Coord.x-x, Coord.y-y);
     end;
   MovLegs:
     begin
-      if LR = Left then
+      if LR = Left;
         begin
-          X:=Round(k*cos(Pi/3));
-          Y:=Round(k*sin(Pi/3));
-          Canvas.LineTo(Coord.x+round(coefArm/3), Coord.y);
-          Canvas.LineTo(Coord.x+round(2/3*x), Coord.y+y);
-
-        end;
-        if LR = Right then
+          X:=k*cos(Pi/3);
+          Y:=k*sin(Pi/3);
+          Canvas.LineTo(Coord.x+(coefArm/3), Coord.y);
+          Canvas.LineTo(Coord.x+(2/3*x), Coord.y+y);
+        end
+      if LR = Right;
         begin
 
         end;
       end;
     end;
-end;
 
 
-procedure PaintLegs(Canvas:TCanvas; Coord: TPoint; mode: TMode);
+procedure PainLegs(Coord: TPoint; mode: TNode);
 begin
   Canvas.MoveTo(Coord.x, Coord.y);
   case mode of
@@ -142,7 +139,7 @@ begin
     end;
   end;
   // Находим точку начала тела
-  PaintHead(InitHead);
+  PainHead(InitHead);
   PaintBody(InitBody, mode);
   PaintArm(InitArm, mode);
   PaintLegs(InitLegs, mode);
@@ -154,4 +151,3 @@ begin
 end;
 
 end.
-

@@ -2,8 +2,7 @@ unit Types;
 
 interface
 const StartPointX = 200;
-      StartPointY = 200;
-      k = 40;
+const StartPointY = 200;
 
 type
 TPoint = record

@@ -50,13 +50,12 @@ end;
 procedure Paintbody(Canvas:TCanvas; Coord: TPoint);
 begin
   Canvas.MoveTo(Coord.x, Coord.y);
-  Canvas.LineTo(Coord.x, Coord.y + coefBody);
+  Canvas.LineTo(Coord.x, Coord.y + coefBody;
 end;
 
 procedure paintHead(Canvas:TCanvas; Coord: TPoint);
 begin
-
-  Canvas.Ellipse(Coord.x, Coord.y, Round(Coord.x + 2 * coefHead), Round(Coord.y + 2*coefHead));
+  Canvas.Ellipse(Coord.x, Coord.y, Coord.x + 2 * coefHead ,Coord.y + 2 * coefHead);
 end;
 
 procedure PaintArm(Canvas:TCanvas; Coord: TPoint; mode: TMode; LR: TLR);
@@ -67,15 +66,15 @@ begin
   case mode of
   MovArms:
     begin
-      X:=Round( k*cos(Pi/4) );
-      Y:=Round( k*sin(Pi/4) );
+      X:=k*cos(Pi/4);
+      Y:=k*sin(Pi/4);
       Canvas.LineTo(Coord.x+x, Coord.y-y);
       Canvas.MoveTo(Coord.x-x, Coord.y-y);
     end;
   MovAll:
     begin
-      X:=Round(k*cos(Pi/4));
-      Y:=Round(k*sin(Pi/4));
+      X:=k*cos(Pi/4);
+      Y:=k*sin(Pi/4);
       Canvas.LineTo(Coord.x-x, Coord.y+y);
       Canvas.LineTo(Coord.x+x, Coord.y-y);
       Canvas.MoveTo(Coord.x-x, Coord.y-y);
@@ -84,10 +83,10 @@ begin
     begin
       if LR = Left then
         begin
-          X:=Round(k*cos(Pi/3));
-          Y:=Round(k*sin(Pi/3));
-          Canvas.LineTo(Coord.x+round(coefArm/3), Coord.y);
-          Canvas.LineTo(Coord.x+round(2/3*x), Coord.y+y);
+          X:=k*cos(Pi/3);
+          Y:=k*sin(Pi/3);
+          Canvas.LineTo(Coord.x+(coefArm/3), Coord.y);
+          Canvas.LineTo(Coord.x+(2/3*x), Coord.y+y);
 
         end;
         if LR = Right then
