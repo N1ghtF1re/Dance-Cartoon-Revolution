@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = 'Form1'
-  ClientHeight = 385
-  ClientWidth = 696
+  ClientHeight = 320
+  ClientWidth = 523
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,19 +14,23 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object Button1: TButton
-    Left = 432
-    Top = 104
-    Width = 75
-    Height = 25
-    Caption = 'Button1'
+  object mp1: TMediaPlayer
+    Left = 0
+    Top = 355
+    Width = 253
+    Height = 30
+    AutoOpen = True
+    DeviceType = dtWaveAudio
+    DoubleBuffered = True
+    FileName = 'E:\Dance-Cartoon-Revolution\mus\kek.wav'
+    Visible = False
+    ParentDoubleBuffered = False
     TabOrder = 0
-    OnClick = Button1Click
   end
   object Timer1: TTimer
-    Interval = 300
+    Interval = 506
     OnTimer = Timer1Timer
-    Left = 384
-    Top = 192
+    Left = 256
+    Top = 352
   end
 end
