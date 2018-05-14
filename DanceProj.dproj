@@ -99,6 +99,7 @@
         <DCCReference Include="Units\MainFigures.pas"/>
         <DCCReference Include="DancedPeople.pas"/>
         <DCCReference Include="Units\SwimingMen.pas"/>
+        <DCCReference Include="Units\ColorsUtils.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

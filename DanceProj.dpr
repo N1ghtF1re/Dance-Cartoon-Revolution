@@ -6,7 +6,8 @@ uses
   ConstAndTypes in 'Units\ConstAndTypes.pas',
   MainFigures in 'Units\MainFigures.pas',
   DancedPeople in 'DancedPeople.pas',
-  SwimingMen in 'Units\SwimingMen.pas';
+  SwimingMen in 'Units\SwimingMen.pas',
+  ColorsUtils in 'Units\ColorsUtils.pas';
 
 {$R *.res}
 
