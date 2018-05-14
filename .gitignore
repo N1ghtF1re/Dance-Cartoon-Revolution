@@ -18,3 +18,7 @@ Win32/Debug/
 
 # Castalia statistics file (since XE7 Castalia is distributed with Delphi)
 *.stat
+*.stat
+*.dcu
+*.exe
+*.dcu
