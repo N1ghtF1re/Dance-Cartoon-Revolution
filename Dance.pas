@@ -143,8 +143,9 @@ begin
   Canvas.Pen.Width:= 2;
   //WritePeople(Canvas, P, MovArms);
   //canvas.Pen.Color:= clred;
-  WritePeople(Canvas, P, TMode( Queue[state] ) , lr1, lr2);
   canvas.Pen.Color := clblack;
+  WritePeople(Canvas, P, TMode( Queue[state] ) , lr1, lr2);
+
 
   currstate := state;
   for i := 1 to 15 do
@@ -189,7 +190,6 @@ begin
       isMem := false;
     dec(j);
   end;
-  col := LighterColor(Colors[random(7)], 50);
   fi := fi + dfi;
   if isStartDance then
   begin
@@ -220,6 +220,7 @@ end;
 procedure TForm1.timer138Timer(Sender: TObject);
 begin
  drawSporsmen(Canvas,mem, lol);
+ col := LighterColor(Colors[random(7)], 50);
 
 end;
 
