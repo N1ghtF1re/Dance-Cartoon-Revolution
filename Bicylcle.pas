@@ -1,6 +1,12 @@
 unit Bicylcle;
 interface
 uses {ConstAndTypes} vcl.graphics;
+
+
+procedure изобрестиВелосипед(Field:TCanvas; x0,y0,c:integer;range1:Real; color: tcolor);
+
+
+implementation
 const
   k = 40;
   WheelR =  k;
@@ -39,11 +45,6 @@ const
   ArmbX = 1.5 * k;
   ArmbY = 0.75 * k;
 
-
-procedure изобрестиВелосипед(Field:TCanvas; x0,y0,c:integer;range1:Real);
-
-
-implementation
   { BodyX = 2 * k;
   BodyY = k;
   HeadR = 0.5 * k;
@@ -71,8 +72,9 @@ begin
   end;
 end;
 
-procedure изобрестиВелосипед(Field:TCanvas; x0,y0,c:integer;range1:Real);
+procedure изобрестиВелосипед(Field:TCanvas; x0,y0,c:integer;range1:Real; color: tcolor);
 begin
+  Field.Pen.Color := color;
 with Field do
   begin
    Brush.Style:=bsClear;

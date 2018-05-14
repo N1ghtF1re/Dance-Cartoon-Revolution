@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Types, MMSystem,
-  Vcl.MPlayer, ConstAndTypes, MainFigures, DancedPeople;
+  Vcl.MPlayer, ConstAndTypes, MainFigures, DancedPeople, SwimingMen, ColorsUtils, bicylcle;
 type
   TForm1 = class(TForm)
     Timer276: TTimer;
@@ -24,8 +24,10 @@ type
     public
       { Public declarations }
     end;
+const dfi = 10;
   var
   DanceMode: TMode;
+  BikeX:Integer;
   Form1: TForm1;
   state:Integer;
   kek: Boolean;
@@ -35,9 +37,12 @@ type
   col: TColor;
   mem: Integer;
   pic: TBitmap;
+  BikeY: integer;
   j: integer;
   currState: Integer;
+  fi: integer;
   lr1, lr2: TLR;
+  SwimCenterX, SwimCenterY: integer;
 //  KeyPoints: array [0..10] of TPoint;
 implementation
 
@@ -54,12 +59,17 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
+  BikeX := - 200;
+  BikeY := 300;
   isStartDance := false;
   Form1.Paint;
    state:=0;
   mp1.Play;
   mem := 800;
+  fi := 0;
   lol := 800;
+  SwimCenterY := 100;
+  SwimCenterX := Self.Width;
 end;
 
 procedure clearscreen(Form: TForm1; Canvas: TCanvas; color: TColor);
@@ -136,8 +146,6 @@ begin
   WritePeople(Canvas, P, TMode( Queue[state] ) , lr1, lr2);
   canvas.Pen.Color := clblack;
 
-
-
   currstate := state;
   for i := 1 to 15 do
   begin
@@ -181,18 +189,38 @@ begin
       isMem := false;
     dec(j);
   end;
+  col := LighterColor(Colors[random(7)], 50);
+  fi := fi + dfi;
+  if isStartDance then
+  begin
+    изобрестивелосипед(Canvas, BikeX,BikeY, 1, (random(3)+7)/10,  DarkerColor(col, 50) );
+    inc( BikeX, 10);
+    drawSwimingPeople(canvas, swimCenterX,swimCenterY,  fi, 1);
+    drawSwimingPeople(canvas, swimCenterX + 50,swimCenterY+550,  fi, -1);
+    dec(SwimCenterX, 10);
+    if SwimCenterX < 0 then
+      SwimCenterX := Self.Width;
+    if BikeX > Self.Width then
+    begin
+      BikeX := -300;
+      BikeY := random(200) + 100;
+      изобрестивелосипед(Canvas, BikeX,BikeY, 1, (random(3)+7)/10,  DarkerColor(col, 50) );
+      BikeY := random(200) + 100;
+    end;
+  end;
 
-  drawSporsmen(Canvas,mem, lol);
 end;
 
 procedure TForm1.TimerStartDanceTimer(Sender: TObject);
 begin
   isStartDance := true;
+  TimerStartDance.Enabled := false;
 end;
 
 procedure TForm1.timer138Timer(Sender: TObject);
 begin
-  col := Colors[random(7)];
+ drawSporsmen(Canvas,mem, lol);
+
 end;
 
 end.
