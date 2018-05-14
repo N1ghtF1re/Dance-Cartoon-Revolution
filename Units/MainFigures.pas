@@ -2,8 +2,7 @@ unit MainFigures;
 
 interface
 uses ConstAndTypes, vcl.graphics;
-
-procedure paintHead(Canvas:TCanvas; Coord: TPoint);
+procedure Paintbody(Canvas:TCanvas; Coord: TPoint);
 procedure paintHead(Canvas:TCanvas; Coord: TPoint);
 
 implementation
