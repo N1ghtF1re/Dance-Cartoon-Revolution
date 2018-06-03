@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Types, MMSystem,
-  Vcl.MPlayer, ConstAndTypes, MainFigures, DancedPeople, SwimingMen, ColorsUtils, bicylcle;
+  Vcl.MPlayer, ConstAndTypes, MainFigures, DancedPeople, SwimingMen, Unit2, ColorsUtils, bicylcle;
 type
   TForm1 = class(TForm)
     Timer276: TTimer;
@@ -30,19 +30,20 @@ const dfi = 10;
   BikeX:Integer;
   Form1: TForm1;
   state:Integer;
-  kek: Boolean;
-  lol: integer;
+  kek: Boolean;  // Смена рук и ног (левая/правая)
   isMem: boolean;
-  isStartDance: Boolean;
+  isStartDance: Boolean; // true - когда начался Харлем
   col: TColor;
   mem: Integer;
   pic: TBitmap;
-  BikeY: integer;
+  BikeY: integer; // Координата Y байка
   j: integer;
-  currState: Integer;
-  fi: integer;
+  currState: Integer; // Состояние человечков
+  fi: integer; // Угол (Лучше не трогать)
   lr1, lr2: TLR;
   SwimCenterX, SwimCenterY: integer;
+  SportX, SportY: Integer;
+  SportState: Integer;
 //  KeyPoints: array [0..10] of TPoint;
 implementation
 
@@ -61,13 +62,15 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   BikeX := - 200;
   BikeY := 300;
+  SportX := 100;
+  sPORTY := 200;
+  SportState := 1;
   isStartDance := false;
   Form1.Paint;
    state:=0;
   mp1.Play;
   mem := 800;
   fi := 0;
-  lol := 800;
   SwimCenterY := 100;
   SwimCenterX := Self.Width;
 end;
@@ -182,10 +185,6 @@ begin
 
   if isMem then
   begin
-    if j <= 2 then
-      lol := lol + 40
-    else
-      lol := lol - 40;
     if j = 1 then
       isMem := false;
     dec(j);
@@ -198,6 +197,13 @@ begin
     drawSwimingPeople(canvas, swimCenterX,swimCenterY,  fi, 1);
     drawSwimingPeople(canvas, swimCenterX + 50,swimCenterY+550,  fi, -1);
     dec(SwimCenterX, 10);
+
+    drawmen(Form1, SportState, SportX, SportY);
+    Sportx := Sportx + 10;
+    Inc(SportState);
+    if (SportState mod 6) = 0 then
+      Inc(SportState);
+
     if SwimCenterX < 0 then
       SwimCenterX := Self.Width;
     if BikeX > Self.Width then
@@ -219,7 +225,6 @@ end;
 
 procedure TForm1.timer138Timer(Sender: TObject);
 begin
- drawSporsmen(Canvas,mem, lol);
  col := LighterColor(Colors[random(7)], 50);
 
 end;

@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
 	<Transactions>
-    <Transaction>1899.12.30 00:00:00.000.021,D:\Dance\Dance.dfm=C:\Users\Win10\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.021,D:\Dance\Dance.pas=C:\Users\Win10\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>1899.12.30 00:00:00.000.020,D:\Dance\DanceProj.dproj=C:\Users\Win10\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.021,C:\Users\Win10\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Dance\Dance.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.020,C:\Users\Win10\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Dance\DanceProj.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.444,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.066,D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas=D:\coloringMap\Dance-Cartoon-Revolution\Units\ColorsUtils.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.021,C:\Users\Win10\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Dance\Dance.pas</Transaction>
     <Transaction>1899.12.30 00:00:00.000.977,=C:\Users\Win10\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 11:01:57.703,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 11:02:54.788,D:\coloringMap\Dance-Cartoon-Revolution\Units\ConstAndTypes.pas=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 11:05:19.899,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 11:06:17.429,D:\coloringMap\Dance-Cartoon-Revolution\Units\MainFigures.pas=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 11:06:45.878,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 11:07:51.297,D:\coloringMap\Dance-Cartoon-Revolution\DancedPeople.pas=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 11:08:46.525,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 11:11:11.596,D:\coloringMap\Dance-Cartoon-Revolution\Units\SwimingMen.pas=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 11:11:15.895,D:\coloringMap\Dance-Cartoon-Revolution\DanceProj.dproj=D:\coloringMap\Dance-Cartoon-Revolution\DanceProj.dproj</Transaction>
-    <Transaction>2018.05.14 13:46:32.444,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 13:48:03.066,D:\coloringMap\Dance-Cartoon-Revolution\Units\ColorsUtils.pas=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
-    <Transaction>2018.05.14 16:56:57.158,D:\coloringMap\Dance-Cartoon-Revolution\DanceProj.dproj=D:\coloringMap\Dance-Cartoon-Revolution\DanceProj.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.895,D:\coloringMap\Dance-Cartoon-Revolution\DanceProj.dproj=D:\coloringMap\Dance-Cartoon-Revolution\DanceProj.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.158,D:\coloringMap\Dance-Cartoon-Revolution\DanceProj.dproj=D:\coloringMap\Dance-Cartoon-Revolution\DanceProj.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.899,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.429,D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas=D:\coloringMap\Dance-Cartoon-Revolution\Units\MainFigures.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.703,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.788,D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas=D:\coloringMap\Dance-Cartoon-Revolution\Units\ConstAndTypes.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.525,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.596,D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas=D:\coloringMap\Dance-Cartoon-Revolution\Units\SwimingMen.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.878,=D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.297,D:\coloringMap\Dance-Cartoon-Revolution\Unit1.pas=D:\coloringMap\Dance-Cartoon-Revolution\DancedPeople.pas</Transaction>
   </Transactions>
 </BorlandProject>
