@@ -8,7 +8,7 @@ const
   hand = 0.4 * body;
   phand = 0.2 * body;
   Legs = 0.6 * body;
-
+procedure DrawMen(Form1: TForm; state: Integer; x0, y0: Extended);
 
 
 implementation
