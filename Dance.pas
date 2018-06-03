@@ -60,10 +60,10 @@ end;
 
 procedure TForm1.FormCreate(Sender: TObject);
 begin
-  BikeX := - 200;
+  BikeX := - 350;
   BikeY := 300;
-  SportX := 100;
-  sPORTY := 200;
+  SportX := -100;
+  sPORTY := bikeY - 30;
   SportState := 1;
   isStartDance := false;
   Form1.Paint;
@@ -212,7 +212,10 @@ begin
       BikeY := random(200) + 100;
       изобрестивелосипед(Canvas, BikeX,BikeY, 1, (random(3)+7)/10,  DarkerColor(col, 50) );
       BikeY := random(200) + 100;
+      SportX := -100;
+      sPORTY := bikeY - 30;
     end;
+
   end;
 
 end;

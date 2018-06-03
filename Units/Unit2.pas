@@ -1,10 +1,10 @@
 unit Unit2;
 
 interface
-uses Vcl.Forms;
+uses Vcl.Forms, ConstAndTypes, MainFigures, vcl.graphics;
 const
-  Body = 100;
-  radius = 0.3 * Body;
+  Body = k;
+  radius = coefHead;
   hand = 0.4 * body;
   phand = 0.2 * body;
   Legs = 0.6 * body;
@@ -373,12 +373,15 @@ end;
 procedure DrawHead(state: integer; x0, y0: extended);
 var
   tempx, tempy: Extended;
+  old:tcolor;
 begin
   with Form1 do
   begin
     tempx := x0;
     tempy := y0;
     Canvas.Pen.Width := 3;
+    old := Canvas.Pen.Color;
+    canvas.Pen.Color := clBlack;
     Canvas.MoveTo(Trunc(tempx), Trunc(tempy));
     Canvas.Ellipse(Trunc(tempx - radius), Trunc(tempy - radius), Trunc(tempx + radius), Trunc(tempy + radius));
     DrawBody(x0, y0);
@@ -386,7 +389,7 @@ begin
     DrawHand((state mod 6) + 5, x0, y0);
     DrawLeg((state mod 6), x0, y0);
     DrawLeg((state mod 6) + 5, x0, y0);
-
+    canvas.Pen.Color := old;
   end;
 end;
 begin
