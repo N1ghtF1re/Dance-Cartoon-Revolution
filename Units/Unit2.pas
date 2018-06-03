@@ -3,7 +3,7 @@ unit Unit2;
 interface
 uses Vcl.Forms, ConstAndTypes, MainFigures, vcl.graphics;
 const
-  Body = k;
+  Body = k*1;
   radius = coefHead;
   hand = 0.4 * body;
   phand = 0.2 * body;

@@ -208,7 +208,7 @@ begin
       SwimCenterX := Self.Width;
     if BikeX > Self.Width then
     begin
-      BikeX := -300;
+      BikeX := -350;
       BikeY := random(200) + 100;
       изобрестивелосипед(Canvas, BikeX,BikeY, 1, (random(3)+7)/10,  DarkerColor(col, 50) );
       BikeY := random(200) + 100;
